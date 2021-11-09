@@ -1,9 +1,19 @@
 package insights
 
+import "github.com/bububa/biz-weibo/model"
+
 // Metrics 数据统计字段
 type Metrics struct {
 	// Date .
 	Date string `json:"date,omitempty"`
+	// AdID 广告计划ID
+	AdID int64 `json:"ad_id,omitempty"`
+	// CampaignID 广告系列ID
+	CampaignID int64 `json:"campaign_id,omitempty"`
+	// CreativeID 广告创意ID
+	CreativeID int64 `json:"creative_id,omitempty"`
+	// Objective 营销目标
+	Objective model.Objective `json:"objective,omitempty"`
 	// Pv 曝光量
 	Pv int64 `json:"pv,omitempty"`
 	// Ecpm 千次曝光成本
