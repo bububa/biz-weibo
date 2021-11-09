@@ -135,7 +135,7 @@ type Metrics struct {
 	// Bhv14000015 置顶评论短链点击
 	Bhv14000015 int64 `json:"bhv_14000015,omitempty"`
 	// Qs 质量分
-	Qs float64 `json"qs,omitempty"`
+	Qs float64 `json:"qs,omitempty"`
 	// NegIndex 负面指数
 	NegIndex float64 `json:"neg_index,omitempty"`
 	// CoverageRate 覆盖率（指定账号
