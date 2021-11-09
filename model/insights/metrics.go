@@ -2,6 +2,8 @@ package insights
 
 // Metrics 数据统计字段
 type Metrics struct {
+	// Date .
+	Date string `json:"date,omitempty"`
 	// Pv 曝光量
 	Pv int64 `json:"pv,omitempty"`
 	// Ecpm 千次曝光成本
@@ -135,7 +137,7 @@ type Metrics struct {
 	// Bhv14000015 置顶评论短链点击
 	Bhv14000015 int64 `json:"bhv_14000015,omitempty"`
 	// Qs 质量分
-	Qs float64 `json"qs,omitempty"`
+	Qs float64 `json:"qs,omitempty"`
 	// NegIndex 负面指数
 	NegIndex float64 `json:"neg_index,omitempty"`
 	// CoverageRate 覆盖率（指定账号
