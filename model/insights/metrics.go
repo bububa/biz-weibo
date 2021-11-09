@@ -2,6 +2,8 @@ package insights
 
 // Metrics 数据统计字段
 type Metrics struct {
+	// Date .
+	Date string `json:"date,omitempty"`
 	// Pv 曝光量
 	Pv int64 `json:"pv,omitempty"`
 	// Ecpm 千次曝光成本

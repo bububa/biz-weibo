@@ -3,7 +3,7 @@ package ad
 // DeliverySchedule 排期对象
 type DeliverySchedule struct {
 	// StartTime 排期开始时间,普通投放时必填
-	StartTime string `json:'start_time,omitempty'`
+	StartTime string `json:"start_time,omitempty"`
 	// StopTime 排期结束时间,普通投放时必填
 	StopTime string `json:"stop_time,omitempty"`
 	// DailyDeliveryType 每日投放类型
