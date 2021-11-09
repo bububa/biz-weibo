@@ -30,6 +30,8 @@
     - 创建广告系列 [ Create(clt *core.SDKClient, accessToken string, req *campaign.CreateRequest) (*campaign.Campaign, error) ]
     - 更新系列预算或名称 [ Update(clt *core.SDKClient, accessToken string, req *campaign.UpdateRequest) (*campaign.Campaign, error) ]
     - 更新系列状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *campaign.UpdateStatusRequest) ([]campaign.UpdateStatusResult, error) ]
+  - 广告计划 (api/ad)
+    - 广告计划列表 [ Ads(clt *core.SDKClient, accessToken string, req *ad.AdsRequest) (*ad.AdsResponse, error) ]
 - 数据报表 (api/insights)
   - 效果统计分析 [ Effect(clt *core.SDKClient, accessToken string, req *insights.EffectRequest) (*insights.EffectResponse, error) ]
 - 数据上报管理 (api/track)
