@@ -9,7 +9,7 @@ import (
 // AssetRequest 获取账户资产 API Request
 type AssetRequest struct {
 	// AdvertiserID 您管理的广告主id，为空则为token对应账户不使用请勿下发
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
 // URL implement Request interface
@@ -23,7 +23,7 @@ func (r AssetRequest) Payload() *model.Payload {
 		return nil
 	}
 	p := new(model.Payload)
-	p.AddValue("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
+	p.AddValue("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
 	return p
 }
 

@@ -9,7 +9,7 @@ import (
 // DeleteReverseBudgetRequest 删除账户次日日限额 API Request
 type DeleteReverseBudgetRequest struct {
 	// AdvertiserID 您管理的广告主id，为空则为token对应账户不使用请勿下发
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
 // URL implement Request interface

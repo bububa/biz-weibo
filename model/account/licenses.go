@@ -9,7 +9,7 @@ import (
 // LicensesRequest 资质列表 API Request
 type LicensesRequest struct {
 	// AdvertiserID 管理的广告主id，为空则为token对应账户
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// Page 页数
 	Page int `json:"page,omitempty"`
 	// Limit 每页条数
@@ -29,7 +29,7 @@ func (r LicensesRequest) URL() string {
 func (r LicensesRequest) Payload() *model.Payload {
 	p := new(model.Payload)
 	if r.AdvertiserID <= 0 {
-		p.AddValue("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
+		p.AddValue("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
 	}
 	if r.Page > 0 {
 		p.AddValue("page", strconv.Itoa(r.Page))
