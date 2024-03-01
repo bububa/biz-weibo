@@ -10,7 +10,7 @@ import (
 // SettingsRequest 用户配置 API Request
 type SettingsRequest struct {
 	// AdvertiserID 您管理的广告主id，为空则为token对应账户不使用请勿下发
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// Key 配置索引
 	Key string `json:"key,omitempty"`
 }
@@ -24,7 +24,7 @@ func (r SettingsRequest) URL() string {
 func (r SettingsRequest) Payload() *model.Payload {
 	p := new(model.Payload)
 	if r.AdvertiserID > 0 {
-		p.AddValue("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
+		p.AddValue("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
 	}
 	p.AddValue("key", r.Key)
 	return p

@@ -10,7 +10,7 @@ import (
 // AdssRequest 广告计划列表 API Request
 type AdsRequest struct {
 	// AdvertiserID 您管理的广告主id，为空则为token对应账户不使用请勿下发
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// Name 按照广告系列名称关键字过滤，若无需求请勿传值
 	Name string `json:"name,omitempty"`
 	// EffectiveStatus 按照广告系列状态过滤，若无需求请勿传值
@@ -40,7 +40,7 @@ func (r AdsRequest) URL() string {
 func (r AdsRequest) Payload() *model.Payload {
 	p := new(model.Payload)
 	if r.AdvertiserID > 0 {
-		p.AddValue("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
+		p.AddValue("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
 	}
 	if r.Name != "" {
 		p.AddValue("name", r.Name)

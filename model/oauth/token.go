@@ -1,6 +1,9 @@
 package oauth
 
-import "github.com/bububa/biz-weibo/model"
+import (
+	"encoding/json"
+	"github.com/bububa/biz-weibo/model"
+)
 
 type GrantType string
 
@@ -63,16 +66,24 @@ func (r AccessTokenRequest) Payload() *model.Payload {
 
 // RefreshTokenRequest 刷新access_token令牌 API Request
 type RefreshTokenRequest struct {
-	TokenRequest
+	ClientId int64 `json:"client_id"`
 	// RefreshToken refresh_token值
 	RefreshToken string `json:"refresh_token,omitempty"`
 }
 
+func (r RefreshTokenRequest) URL() string {
+	return "oauth/refresh_token"
+}
+
 // URL implement Request interface
 func (r RefreshTokenRequest) Payload() *model.Payload {
-	p := new(model.Payload)
-	p.AddValue("client_id", r.ClientID)
-	p.AddValue("grant_type", string(RefreshToken))
-	p.AddValue("refresh_token", r.RefreshToken)
+	bs, _ := json.Marshal(r)
+	p := model.NewPostPayload(bs)
 	return p
+}
+
+// RefreshTokenRequest 刷新access_token令牌 API Request
+type RefreshTokenResponse struct {
+	model.BaseResponse
+	Data Token `json:"data"`
 }

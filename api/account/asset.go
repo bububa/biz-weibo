@@ -6,7 +6,7 @@ import (
 )
 
 // Asset 获取账户资产
-func Asset(clt *core.SDKClient, accessToken string, advertiserID int64) (*account.Asset, error) {
+func Asset(clt *core.SDKClient, accessToken string, advertiserID uint64) (*account.Asset, error) {
 	var (
 		ret account.AssetResponse
 		req = &account.AssetRequest{
