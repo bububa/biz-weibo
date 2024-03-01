@@ -26,5 +26,5 @@
  .DS_Store
  test
  .vim
- .idea
+ .idea/
 dist/

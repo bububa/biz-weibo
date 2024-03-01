@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="48f7a6f1-9da9-4c45-80bf-765b50b36078" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/oauth/token.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/oauth/token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/account/asset.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/account/asset.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/account/budget.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/account/budget.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/account/delete_reverse_budget.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/account/delete_reverse_budget.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/account/flow.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/account/flow.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/account/info.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/account/info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/account/licenses.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/account/licenses.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/account/reverse_spend_cap.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/account/reverse_spend_cap.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/account/settings.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/account/settings.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ad/ad.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/ad/ad.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ad/ads.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/ad/ads.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ad/depth_conversion.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/ad/depth_conversion.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ad/subject.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/ad/subject.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ad/targeting.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/ad/targeting.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/campaign/campaign.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/campaign/campaign.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/campaign/campaigns.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/campaign/campaigns.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/oauth/token.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/oauth/token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/request.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file:///opt/homebrew/Cellar/go/1.21.4/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2cwIwSdWYIVefh1Y6Jxp1N1ytd4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/toshi/github/biz-weibo"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/model/report" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
