@@ -12,14 +12,16 @@ import (
 
 // SDKClient  object
 type SDKClient struct {
-	appID string
-	debug bool
+	appID      string
+	debug      bool
+	httpClient *http.Client
 }
 
 // NewSDKClient init sdk client
 func NewSDKClient(appID string) *SDKClient {
 	return &SDKClient{
-		appID: appID,
+		appID:      appID,
+		httpClient: http.DefaultClient,
 	}
 }
 
@@ -31,6 +33,10 @@ func (c SDKClient) AppID() string {
 // SetDebug set debug mode
 func (c *SDKClient) SetDebug(debug bool) {
 	c.debug = debug
+}
+
+func (c SDKClient) SetHTTPClient(clt *http.Client) {
+	c.httpClient = clt
 }
 
 func (c SDKClient) RequestURL(apiPath string, payload *model.Payload) string {
@@ -77,7 +83,7 @@ func (c *SDKClient) Post(accessToken string, reqUrl string, reqBytes []byte, res
 	}
 	httpReq.Header.Add("Accept", "application/json,application/text+gw2.0")
 	httpReq.Header.Add("Content-Type", "application/json")
-	httpResp, err := http.DefaultClient.Do(httpReq)
+	httpResp, err := c.httpClient.Do(httpReq)
 	if err != nil {
 		return err
 	}
@@ -105,7 +111,7 @@ func (c *SDKClient) Get(accessToken string, reqUrl string, resp interface{}) err
 	}
 	httpReq.Header.Add("Accept", "application/json,application/text+gw2.0")
 	httpReq.Header.Add("Content-Type", "application/json")
-	httpResp, err := http.DefaultClient.Do(httpReq)
+	httpResp, err := c.httpClient.Do(httpReq)
 	if err != nil {
 		return err
 	}

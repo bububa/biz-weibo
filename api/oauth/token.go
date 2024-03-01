@@ -16,9 +16,9 @@ func AccessToken(clt *core.SDKClient, req *oauth.AccessTokenRequest) (*oauth.Tok
 
 // RefreshToken 刷新access_token令牌
 func RefreshToken(clt *core.SDKClient, req *oauth.RefreshTokenRequest) (*oauth.Token, error) {
-	var ret oauth.TokenResponse
+	var ret oauth.RefreshTokenResponse
 	if err := clt.Do("", req, &ret); err != nil {
 		return nil, err
 	}
-	return &ret.Token, nil
+	return &ret.Data, nil
 }

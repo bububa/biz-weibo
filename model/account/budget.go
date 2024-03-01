@@ -9,7 +9,7 @@ import (
 // BudgetRequest 修改账户日限额 API Request
 type BudgetRequest struct {
 	// AdvertiserID 您管理的广告主id，为空则为token对应账户不使用请勿下发
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// SpendCap 日限额
 	SpendCap float64 `json:"spend_cap,omitempty"`
 }

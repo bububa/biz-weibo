@@ -32,6 +32,7 @@
     - 更新系列状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *campaign.UpdateStatusRequest) ([]campaign.UpdateStatusResult, error) ]
   - 广告计划 (api/ad)
     - 广告计划列表 [ Ads(clt *core.SDKClient, accessToken string, req *ad.AdsRequest) (*ad.AdsResponse, error) ]
+    - 广告计划详情 [ Info(clt *core.SDKClient, accessToken string, req *ad.InfoRequest) (*ad.Ad, error) ]
 - 数据报表 (api/insights)
   - 效果统计分析 [ Effect(clt *core.SDKClient, accessToken string, req *insights.EffectRequest) (*insights.EffectResponse, error) ]
 - 数据上报管理 (api/track)

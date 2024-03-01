@@ -26,7 +26,7 @@ func (p *Payload) AddValue(key string, val string) {
 	if p.values == nil {
 		p.values = make(url.Values)
 	}
-	p.values.Set(key, val)
+	p.values.Add(key, val)
 }
 
 // NewPostPayload init get payload
