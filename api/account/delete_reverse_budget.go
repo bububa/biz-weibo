@@ -6,7 +6,7 @@ import (
 )
 
 // DeleteReverseBudget 删除账户次日日限额
-func DeleteReverseBudget(clt *core.SDKClient, accessToken string, advertiserID int64) (*account.Account, error) {
+func DeleteReverseBudget(clt *core.SDKClient, accessToken string, advertiserID uint64) (*account.Account, error) {
 	var (
 		ret account.DeleteReverseBudgetResponse
 		req = &account.DeleteReverseBudgetRequest{
