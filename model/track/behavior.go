@@ -20,4 +20,20 @@ const (
 	Behavior_PURCHASE Behavior = 1007
 	// Behavior_OTHERS 其他(other)
 	Behavior_OTHERS Behavior = 1100
+	// Behavior_FINANCE_COMPLETE 金融-完件
+	Behavior_FINANCE_COMPLETE Behavior = 1024
+	// Behavior_FINANCE_CREDITE 金融-授信
+	Behavior_FINANCE_CREDITE Behavior = 1025
+	// Behavior_FINANCE_LOAN 金融-放款
+	Behavior_FINANCE_LOAN Behavior = 1026
+	// Behavior_PAID_ECOMMERCE_ORDER 付款订单商品数
+	Behavior_PAID_ECOMMERCE_ORDER Behavior = 2001
+	// Behavior_MINIAPP_ACTIVE 激活(小程序)
+	Behavior_MINIAPP_ACTIVE Behavior = 3001
+	// Behavior_MINIAPP_REGISTER 注册(小程序)
+	Behavior_MINIAPP_REGISTER Behavior = 3002
+	// Behavior_MINIAPP_PAY 付费(小程序&微信)
+	Behavior_MINIAPP_PAY Behavior = 3003
+	// Behavior_WECHAT_FOLLOW 微信关注
+	Behavior_WECHAT_FOLLOW Behavior = 3004
 )

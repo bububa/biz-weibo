@@ -2,8 +2,9 @@ package report
 
 import (
 	"encoding/json"
-	"github.com/bububa/biz-weibo/model"
 	"strconv"
+
+	"github.com/bububa/biz-weibo/model"
 )
 
 type AdDataRequest struct {
@@ -70,7 +71,7 @@ type AdDataResponse struct {
 
 type AdData struct {
 	List []AdDataMetrics `json:"list"`
-	Sum  SumMetrics      `json:"sum"`
+	Sum  Metrics         `json:"sum"`
 	PageInfo
 }
 
