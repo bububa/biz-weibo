@@ -1,8 +1,9 @@
 package report
 
 import (
-	"github.com/bububa/biz-weibo/model"
 	"strconv"
+
+	"github.com/bububa/biz-weibo/model"
 )
 
 type AccountDataRequest struct {
@@ -58,7 +59,7 @@ type AccountDataResponse struct {
 
 type AccountData struct {
 	List []AccountDataMetrics `json:"list"`
-	Sum  SumMetrics           `json:"sum"`
+	Sum  Metrics              `json:"sum"`
 	PageInfo
 }
 

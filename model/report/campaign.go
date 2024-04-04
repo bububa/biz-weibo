@@ -2,8 +2,9 @@ package report
 
 import (
 	"encoding/json"
-	"github.com/bububa/biz-weibo/model"
 	"strconv"
+
+	"github.com/bububa/biz-weibo/model"
 )
 
 type CampaignDataRequest struct {
@@ -69,7 +70,7 @@ type CampaignDataResponse struct {
 
 type CampaignData struct {
 	List []CampaignDataMetrics `json:"list"`
-	Sum  SumMetrics            `json:"sum"`
+	Sum  Metrics               `json:"sum"`
 	PageInfo
 }
 
