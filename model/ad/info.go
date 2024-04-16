@@ -12,7 +12,7 @@ type InfoRequest struct {
 	// AdvertiserID 您管理的广告主id，为空则为token对应账户不使用请勿下发
 	AdvertiserID int64 `json:"advertiser_id,omitempty"`
 	// AdID 广告ID
-	AdID int64 `json:"ad_id,omitempty"`
+	AdID uint64 `json:"ad_id,omitempty"`
 }
 
 // URL implement Request interface

@@ -47,14 +47,7 @@ func (r LicensesRequest) Payload() *model.Payload {
 // LicensesResponse 资质列表 API Response
 type LicensesResponse struct {
 	model.BaseResponse
-	// Total
-	Total int `json:"total,omitempty"`
-	// PageTotal
-	PageTotal int `json:"pageTotal,omitempty"`
-	// PageSize
-	PageSize int `json:"pageSize,omitempty"`
-	// Page
-	Page int `json:"page,omitempty"`
+	model.PageInfo
 	// List
 	List []License `json:"list,omitempty"`
 }
@@ -71,7 +64,7 @@ type License struct {
 	Industry int64 `json:"industry,omitempty"`
 	// BizID
 	BizID int64 `json:"bizId,omitempty"`
-	// Uid
+	// Uid 资质所属账户id
 	Uid int64 `json:"uid,omitempty"`
 	// EntityID
 	EntityID int64 `json:"entityId,omitempty"`
@@ -81,7 +74,7 @@ type License struct {
 	Version30 int `json:"version30,omitempty"`
 	// Pending
 	Pending int `json:"pending,omitempty"`
-	// Status
+	// Status 资质状态
 	Status int `json:"status,omitempty"`
 	// Status30
 	Status30 int `json:"status30,omitempty"`
@@ -91,7 +84,7 @@ type License struct {
 	CreateTime int64 `json:"createTime,omitempty"`
 	// UpdateTIme
 	UpdateTime int64 `json:"updateTime,omitempty"`
-	// Reason
+	// Reason 资质审核驳回原因
 	Reason string `json:"reason,omitempty"`
 	// Reason30
 	Reason30 string `json:"reason30,omitempty"`

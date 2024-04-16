@@ -3,17 +3,18 @@ package campaign
 import (
 	"encoding/json"
 
+	"github.com/bububa/biz-weibo/enum"
 	"github.com/bububa/biz-weibo/model"
 )
 
 // UpdateStatusRequest 更新系列状态 API Request
 type UpdateStatusRequest struct {
 	// AdvertiserID 您管理的广告主id，为空则为token对应账户不使用请勿下发
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// IDs 系列id，数组型，支持多个
-	IDs []int64 `json:"ids,omitempty"`
+	IDs []uint64 `json:"ids,omitempty"`
 	// ConfiguredStatus 目标状态
-	ConfiguredStatus int `json:"configured_status"`
+	ConfiguredStatus enum.ConfiguredStatus `json:"configured_status"`
 }
 
 // URL implement Request interface
@@ -42,7 +43,7 @@ func (r UpdateStatusResponse) Error() string {
 
 // UpdateStatus 系列更新状态结果
 type UpdateStatusResult struct {
-	ID           int64  `json:"id,omitempty"`
+	CampaignID   uint64 `json:"campaign_id,omitempty"`
 	Status       bool   `json:"status,omitempty"`
 	ErrorMessage string `json:"error_message,omitempty"`
 }

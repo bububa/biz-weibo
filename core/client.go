@@ -5,10 +5,31 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
+	"sync"
+	"time"
 
 	"github.com/bububa/biz-weibo/core/internal/debug"
 	"github.com/bububa/biz-weibo/model"
 )
+
+var (
+	onceInit   sync.Once
+	httpClient *http.Client
+)
+
+func defaultHttpClient() *http.Client {
+	onceInit.Do(func() {
+		transport := http.DefaultTransport.(*http.Transport).Clone()
+		transport.MaxIdleConns = 100
+		transport.MaxConnsPerHost = 100
+		transport.MaxIdleConnsPerHost = 100
+		httpClient = &http.Client{
+			Transport: transport,
+			Timeout:   time.Second * 60,
+		}
+	})
+	return httpClient
+}
 
 // SDKClient  object
 type SDKClient struct {
@@ -21,7 +42,7 @@ type SDKClient struct {
 func NewSDKClient(appID string) *SDKClient {
 	return &SDKClient{
 		appID:      appID,
-		httpClient: http.DefaultClient,
+		httpClient: defaultHttpClient(),
 	}
 }
 
@@ -73,7 +94,6 @@ func (c *SDKClient) Do(accessToken string, req model.Request, resp model.Respons
 
 // Post data through api
 func (c *SDKClient) Post(accessToken string, reqUrl string, reqBytes []byte, resp interface{}) error {
-	debug.PrintPostJSONRequest(reqUrl, reqBytes, c.debug)
 	httpReq, err := http.NewRequest("POST", reqUrl, bytes.NewReader(reqBytes))
 	if err != nil {
 		return err
@@ -83,6 +103,7 @@ func (c *SDKClient) Post(accessToken string, reqUrl string, reqBytes []byte, res
 	}
 	httpReq.Header.Add("Accept", "application/json,application/text+gw2.0")
 	httpReq.Header.Add("Content-Type", "application/json")
+	debug.PrintJSONRequest("POST", reqUrl, httpReq.Header, reqBytes, c.debug)
 	httpResp, err := c.httpClient.Do(httpReq)
 	if err != nil {
 		return err

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
+	"github.com/bububa/biz-weibo/enum"
 	"github.com/bububa/biz-weibo/model"
 )
 
@@ -21,8 +22,8 @@ type CampaignDataRequest struct {
 }
 
 type CampaignDataFilter struct {
-	CampaignIds []int64 `json:"campaign_ids"`
-	Objective   []int64 `json:"objective"`
+	CampaignIds []uint64         `json:"campaign_ids"`
+	Objective   []enum.Objective `json:"objective"`
 }
 
 // URL implement Request interface

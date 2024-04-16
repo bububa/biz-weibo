@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
+	"github.com/bububa/biz-weibo/enum"
 	"github.com/bububa/biz-weibo/model"
 )
 
@@ -21,9 +22,9 @@ type CreativeDataRequest struct {
 }
 
 type CreativeDataFilter struct {
-	CreativeIds []int64 `json:"creative_ids"`
-	Objective   []int64 `json:"objective"`
-	FundType    int64   `json:"fund_type"`
+	CreativeIds []uint64         `json:"creative_ids"`
+	Objective   []enum.Objective `json:"objective"`
+	FundType    int              `json:"fund_type"`
 }
 
 // URL implement Request interface

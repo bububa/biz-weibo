@@ -52,11 +52,11 @@ type SettingsResponse struct {
 // Settings 用户配置
 type Settings struct {
 	// ID
-	ID int64 `json:"id,omitempty"`
+	ID uint64 `json:"id,omitempty"`
 	// CustomerID
-	CustomerID int64 `json:"customer_id,omitempty"`
+	CustomerID uint64 `json:"customer_id,omitempty"`
 	// Sid
-	Sid int64 `json:"sid,omitempty"`
+	Sid uint64 `json:"sid,omitempty"`
 	// CloudKey
 	CloudKey string `json:"cloud_key,omitempty"`
 	// CloudVal

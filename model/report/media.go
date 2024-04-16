@@ -21,9 +21,9 @@ type MediaDataRequest struct {
 }
 
 type MediaDataFilter struct {
-	AdIds     []int64 `json:"ad_ids"`
-	MediaType []int   `json:"media_type"`
-	MediaIds  int64   `json:"media_ids"`
+	AdIds     []uint64 `json:"ad_ids"`
+	MediaType []int    `json:"media_type"`
+	MediaIds  uint64   `json:"media_ids"`
 }
 
 // URL implement Request interface

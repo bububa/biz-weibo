@@ -10,7 +10,7 @@ import (
 // EffectRequest 效果统计分析
 type EffectRequest struct {
 	// AdvertiserID 广告主id，此为您管理的广告主id
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// Data
 	Data EffectRequestData `json:"data,omitempty"`
 }
@@ -44,7 +44,7 @@ func (r EffectRequest) URL() string {
 func (r EffectRequest) Payload() *model.Payload {
 	p := new(model.Payload)
 	if r.AdvertiserID > 0 {
-		p.AddValue("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
+		p.AddValue("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
 	}
 	buf, _ := json.Marshal(r.Data)
 	p.AddValue("data", string(buf))

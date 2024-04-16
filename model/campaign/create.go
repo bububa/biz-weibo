@@ -3,21 +3,24 @@ package campaign
 import (
 	"encoding/json"
 
+	"github.com/bububa/biz-weibo/enum"
 	"github.com/bububa/biz-weibo/model"
 )
 
 // CreateRequest 创建广告系列
 type CreateRequest struct {
 	// AdvertiserID 您管理的广告主id，为空则为token对应账户不使用请勿下发
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// Name 系列名称 最长50个字符
 	Name string `json:"name,omitempty"`
 	// Objective 营销目标
-	Objective model.Objective `json:"objective,omitempty"`
-	// GuaranteedDelivery  是否定价保量，1为定价保量，0为非定价保量（默认）
-	GuaranteedDelivery bool `json:"guaranteed_delivery,omitempty"`
+	Objective enum.Objective `json:"objective,omitempty"`
+	// BudgetType 预算类型 1 系列总预算(默认) ，2 系列日预算 详见：【附录-系列预算类型】
+	BudgetType enum.BudgetType `json:"budget_type,omitempty"`
 	// LifetimeBudget 系列总预算，0表示不限，最低系列总预算为150元，最高系列总预算9,999,999.99元
 	LifetimeBudget float64 `json:"lifetime_budget,omitempty"`
+	// DailyBudget 系列日预算，0表示不限. 【示例】 9999.01
+	DailyBudget float64 `json:"daily_budget,omitempty"`
 }
 
 // URL implement Request interface
