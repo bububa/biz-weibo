@@ -4,8 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"io"
-	"io/ioutil"
 	"log"
+	"net/http"
+	"strings"
+
+	"github.com/bububa/biz-weibo/util"
 )
 
 func PrintError(err error, debug bool) {
@@ -29,6 +32,7 @@ func PrintGetRequest(url string, debug bool) {
 	log.Println("[DEBUG] [API] GET", url)
 }
 
+// PrintPostJSONRequest print json request with debug
 func PrintPostJSONRequest(url string, body []byte, debug bool) {
 	if !debug {
 		return
@@ -36,18 +40,43 @@ func PrintPostJSONRequest(url string, body []byte, debug bool) {
 	const format = "[DEBUG] [API] JSON POST %s\n" +
 		"http request body:\n%s\n"
 
-	buf := bytes.NewBuffer(make([]byte, 0, len(body)+1024))
-	if err := json.Indent(buf, body, "", "    "); err == nil {
-		body = buf.Bytes()
-	}
-	log.Printf(format, url, body)
+	buf := util.GetBufferPool()
+	defer util.PutBufferPool(buf)
+	json.Indent(buf, body, "", "    ")
+	log.Printf(format, url, buf.String())
 }
 
-func PrintPostMultipartRequest(url string, body []byte, debug bool) {
+// PrintJSONRequest print json request with debug
+func PrintJSONRequest(method string, url string, header http.Header, body []byte, debug bool) {
 	if !debug {
 		return
 	}
-	log.Println("[DEBUG] [API] multipart/form-data POST", url)
+
+	const format = "[DEBUG] [API] JSON %s %s\n" +
+		"http request header:\n%s\n" +
+		"http request body:\n%s\n"
+
+	buf := util.GetBufferPool()
+	defer util.PutBufferPool(buf)
+	json.Indent(buf, body, "", "\t")
+	headers := make([]string, 0, len(header))
+	for k := range header {
+		headers = append(headers, util.StringsJoin(k, ": ", header.Get(k)))
+	}
+
+	log.Printf(format, method, url, strings.Join(headers, "\n"), buf.String())
+}
+
+// PrintPostMultipartRequest print multipart/form-data post request with debug
+func PrintPostMultipartRequest(url string, mp map[string]string, debug bool) {
+	if !debug {
+		return
+	}
+	const format = "[DEBUG] [API] multipart/form-data POST %s\n" +
+		"http request body:\n%s\n"
+
+	bs, _ := json.MarshalIndent(mp, "", "\t")
+	log.Printf(format, url, bs)
 }
 
 func DecodeJSONHttpResponse(r io.Reader, v interface{}, debug bool) error {
@@ -57,7 +86,7 @@ func DecodeJSONHttpResponse(r io.Reader, v interface{}, debug bool) error {
 		}
 		return json.NewDecoder(r).Decode(v)
 	}
-	body, err := ioutil.ReadAll(r)
+	body, err := io.ReadAll(r)
 	if err != nil {
 		return err
 	}

@@ -1,8 +1,9 @@
 package account
 
 import (
-	"github.com/bububa/biz-weibo/model"
 	"strconv"
+
+	"github.com/bububa/biz-weibo/model"
 )
 
 type ManageListRequest struct {
@@ -33,20 +34,18 @@ func (r ManageListRequest) Payload() *model.Payload {
 
 type ManageListResponse struct {
 	model.BaseResponse
-	PageTotal int      `json:"page_total"`
-	PageSize  int      `json:"page_size"`
-	Page      int      `json:"page"`
-	List      []Manage `json:"list"`
+	model.PageInfo
+	List []Manage `json:"list"`
 }
 
 type Manage struct {
-	EffectiveStatus  int    `json:"effective_status"`
-	Role             int    `json:"role"`
-	ChildId          int64  `json:"child_id"`
-	UpdatedAt        string `json:"updated_at"`
-	MainName         string `json:"main_name"`
-	MainId           uint64 `json:"main_id"`
-	ConfiguredStatus int    `json:"configured_status"`
-	CreatedAt        string `json:"created_at"`
-	Id               int    `json:"id"`
+	EffectiveStatus  int    `json:"effective_status,omitempty"`
+	Role             int    `json:"role,omitempty"`
+	ChildID          uint64 `json:"child_id,omitempty"`
+	UpdatedAt        string `json:"updated_at,omitempty"`
+	MainName         string `json:"main_name,omitempty"`
+	MainId           uint64 `json:"main_id,omitempty"`
+	ConfiguredStatus int    `json:"configured_status,omitempty"`
+	CreatedAt        string `json:"created_at,omitempty"`
+	ID               uint   `json:"id,omitempty"`
 }

@@ -22,8 +22,8 @@ type UserInfoResponse struct {
 }
 
 type UserInfo struct {
-	Uid         uint64 `json:"uid"`
-	Name        string `json:"name"`
-	AccessToken string `json:"access_token"`
-	UserType    int    `json:"user_type"`
+	Uid         uint64 `json:"uid,omitempty"`
+	Name        string `json:"name,omitempty"`
+	AccessToken string `json:"access_token,omitempty"`
+	UserType    int    `json:"user_type,omitempty"`
 }

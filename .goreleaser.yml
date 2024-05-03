@@ -1,3 +1,4 @@
+
 # This is an example .goreleaser.yml file with some sane defaults.
 # Make sure to check the documentation at http://goreleaser.com
 project_name: "biz-weibo"
@@ -10,12 +11,13 @@ before:
 builds:
   - skip: true
 archives:
-  - replacements:
-      darwin: Darwin
-      linux: Linux
-      windows: Windows
-      386: i386
-      amd64: x86_64
+  - id: biz-weibo 
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
 checksum:
   name_template: 'checksums.txt'
 snapshot:

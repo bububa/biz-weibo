@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
+	"github.com/bububa/biz-weibo/enum"
 	"github.com/bububa/biz-weibo/model"
 )
 
@@ -14,17 +15,21 @@ type AdsRequest struct {
 	// Name 按照广告系列名称关键字过滤，若无需求请勿传值
 	Name string `json:"name,omitempty"`
 	// EffectiveStatus 按照广告系列状态过滤，若无需求请勿传值
-	EffectiveStatus []int `json:"effective_status,omitempty"`
+	EffectiveStatus []enum.EffectiveStatus `json:"effective_status,omitempty"`
 	// Objectives 按照营销目标过滤，若无需求请勿传值
-	Objectives []model.Objective `json:"objectives,omitempty"`
+	Objectives []enum.Objective `json:"objectives,omitempty"`
 	// IDs id筛选
-	IDs []int64 `json:"ids,omitempty"`
+	IDs []uint64 `json:"ids,omitempty"`
 	// BillingTypes 按照计费模式过滤，若无需求请勿传值
-	BillingTypes []BillingType `json:"billing_type,omitempty"`
-	// MidSources 广告类型
-	MidSources []int `json:"mid_source,omitempty"`
-	// GuaranteedDelivery 是否定价保量
-	GuaranteedDelivery bool `json:"guaranteed_delivery,omitempty"`
+	BillingTypes []enum.BillingType `json:"billing_type,omitempty"`
+	// IsRecycled 标记是否删除,当查询已删除列表时，is_recycled=1
+	IsRecycled int `json:"is_recycled,omitempty"`
+	// CampaignID 所属的系列id 【示例】 1234
+	CampaignID uint64 `json:"campaign_id,omitempty"`
+	// AdStartTime 根据计划创建时间筛,开始时间，格式：yyyy-MM-dd，【示例】 "2022-10-01"
+	AdStartTime string `json:"ad_start_time,omitempty"`
+	// AdEndTime 根据计划创建时间筛，结束时间，格式：yyyy-MM-dd，【示例】 "2022-10-01"
+	AdEndTime string `json:"ad_end_time,omitempty"`
 	// Page 页码
 	Page int `json:"page,omitempty"`
 	// PageSize 每页大小
@@ -61,12 +66,17 @@ func (r AdsRequest) Payload() *model.Payload {
 		buf, _ := json.Marshal(r.BillingTypes)
 		p.AddValue("billing_type", string(buf))
 	}
-	if len(r.MidSources) > 0 {
-		buf, _ := json.Marshal(r.MidSources)
-		p.AddValue("mid_source", string(buf))
+	if r.IsRecycled > 0 {
+		p.AddValue("is_recycled", strconv.Itoa(r.IsRecycled))
 	}
-	if r.GuaranteedDelivery {
-		p.AddValue("guaranteed_delivery", "true")
+	if r.CampaignID > 0 {
+		p.AddValue("campaing_id", strconv.FormatUint(r.CampaignID, 10))
+	}
+	if r.AdStartTime != "" {
+		p.AddValue("ad_start_time", r.AdStartTime)
+	}
+	if r.AdEndTime != "" {
+		p.AddValue("ad_end_time", r.AdEndTime)
 	}
 	if r.Page > 0 {
 		p.AddValue("page", strconv.Itoa(r.Page))
@@ -80,14 +90,7 @@ func (r AdsRequest) Payload() *model.Payload {
 // AdsResponse 广告计划列表 API Response
 type AdsResponse struct {
 	model.BaseResponse
-	// Page 页码
-	Page int `json:"page,omitempty"`
-	// PageSize 分页数
-	PageSize int `json:"page_size,omitempty"`
-	// PageTotal 总页数
-	PageTotal int `json:"page_total,omitempty"`
-	// Total 总数
-	Total int `json:"total,omitempty"`
+	model.PageInfo
 	// List 广告计划列表
 	List []Ad `json:"list,omitempty"`
 }

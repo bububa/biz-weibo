@@ -33,6 +33,14 @@
   - 广告计划 (api/ad)
     - 广告计划列表 [ Ads(clt *core.SDKClient, accessToken string, req *ad.AdsRequest) (*ad.AdsResponse, error) ]
     - 广告计划详情 [ Info(clt *core.SDKClient, accessToken string, req *ad.InfoRequest) (*ad.Ad, error) ]
+  -  创意管理 (api/creative)
+  - 获取创意详情 [ Info(clt *core.SDKClient, accessToken string, req *creative.InfoRequest) (*creative.CreativeDetail, error) ]
+  - 获取创意列表 [ Creatives(clt *core.SDKClient, accessToken string, req *creative.CreativesRequest) (*creative.CreativesData, error) ]
+  - 批量获取创意详情 [ Batch(clt *core.SDKClient, accessToken string, req *creative.BatchRequest) ([]creative.CreativeDetail, error) ]
+  - 创建广告创意 [ Create(clt *core.SDKClient, accessToken string, req *creative.CreateRequest) (uint64, error) ]
+  - 创意编辑 [ Update(clt *core.SDKClient, accessToken string, req *creative.UpdateRequest) (uint64, error) ]
+  - 创意状态更新 [ UpdateStatusBatch(clt *core.SDKClient, accessToken string, req *creative.UpdateStatusBatchRequest) ([]creative.UpdateResult, error) ]
+  - 智能创意文案 [ AdRec(clt *core.SDKClient, accessToken string, req *creative.AdRecRequest) ([]creative.AdRec, error) ]
 - 数据报表 (api/insights)
   - 效果统计分析 [ Effect(clt *core.SDKClient, accessToken string, req *insights.EffectRequest) (*insights.EffectResponse, error) ]
 - 数据上报管理 (api/track)

@@ -3,11 +3,13 @@ package account
 // Account 账号
 type Account struct {
 	// ID 广告账号id
-	ID int64 `json:"id,omitempty"`
+	ID uint64 `json:"id,omitempty"`
 	// CustomerID 广告客户微博id
-	CustomerID int64 `json:"customer_id,omitempty"`
+	CustomerID uint64 `json:"customer_id,omitempty"`
 	// Name 广告客户名称
 	Name string `json:"name,omitempty"`
+	// ProfileImage 广告账户头像
+	ProfileImage string `json:"profile_image,omitempty"`
 	// DisableReason 禁用原因
 	DisableReason string `json:"disable_reason,omitempty"`
 	// SpendCap 日限额

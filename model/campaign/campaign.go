@@ -4,31 +4,23 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/bububa/biz-weibo/enum"
 	"github.com/bububa/biz-weibo/model"
 )
 
 // Campaign 广告系列
 type Campaign struct {
-	Id                 int    `json:"id"`
-	CustomerId         int64  `json:"customer_id"`
-	Name               string `json:"name"`
-	Objective          int    `json:"objective"`
-	LifetimeBudget     string `json:"lifetime_budget"`
-	GuaranteedDelivery int    `json:"guaranteed_delivery"`
-	ConfiguredStatus   int    `json:"configured_status"`
-	EffectiveStatus    int    `json:"effective_status"`
-	IsRecycled         int    `json:"is_recycled"`
-	RecycleDatetime    string `json:"recycle_datetime"`
-	AdBuilder          int    `json:"ad_builder"`
-	Oauth2Id           int    `json:"oauth2_id"`
-	CreatedAt          string `json:"created_at"`
-	UpdatedAt          string `json:"updated_at"`
-	Version            int    `json:"version"`
-	FundType           int    `json:"fund_type"`
-	AdDeliveryType     int    `json:"ad_delivery_type"`
-	BudgetType         int    `json:"budget_type"`
-	DailyBudget        string `json:"daily_budget"`
-	ObjectiveName      string `json:"objective_name"`
+	Id                 uint64                       `json:"id,omitempty"`
+	CustomerId         uint64                       `json:"customer_id,omitempty"`
+	Name               string                       `json:"name,omitempty"`
+	Objective          int                          `json:"objective,omitempty"`
+	GuaranteedDelivery int                          `json:"guaranteed_delivery,omitempty"`
+	ConfiguredStatus   enum.ConfiguredStatus        `json:"configured_status,omitempty"`
+	EffectiveStatus    enum.CampaignEffectiveStatus `json:"effective_status,omitempty"`
+	BudgetType         enum.BudgetType              `json:"budget_type,omitempty"`
+	LifetimeBudget     model.Float64                `json:"lifetime_budget,omitempty"`
+	DailyBudget        model.Float64                `json:"daily_budget,omitempty"`
+	IsRecycled         int                          `json:"is_recycled,omitempty"`
 }
 
 // CampaignRequest 系列详情
@@ -36,7 +28,7 @@ type CampaignRequest struct {
 	// AdvertiserID 您管理的广告主id，为空则为token对应账户不使用请勿下发
 	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// ID 系列ID
-	ID int64 `json:"id,omitempty"`
+	ID uint64 `json:"id,omitempty"`
 }
 
 // URL implement Request interface
