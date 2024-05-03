@@ -70,10 +70,10 @@ func (r CreativesRequest) Payload() *model.Payload {
 
 type CreativesResponse struct {
 	model.BaseResponse
-	Data CreativeData `json:"data"`
+	Data *CreativesData `json:"data,omitempty"`
 }
 
-type CreativeData struct {
+type CreativesData struct {
 	List []Creative `json:"list,omitempty"`
 	model.PageInfo
 }

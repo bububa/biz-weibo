@@ -5,9 +5,9 @@ import (
 	"github.com/bububa/biz-weibo/model/creative"
 )
 
-// Creatives 获取创意列表
-func Creatives(clt *core.SDKClient, accessToken string, req *creative.CreativesRequest) (*creative.CreativesData, error) {
-	var ret creative.CreativesResponse
+// Batch 批量获取创意详情
+func Batch(clt *core.SDKClient, accessToken string, req *creative.BatchRequest) ([]creative.CreativeDetail, error) {
+	var ret creative.BatchResponse
 	if err := clt.Do(accessToken, req, &ret); err != nil {
 		return nil, err
 	}

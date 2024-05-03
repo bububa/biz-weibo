@@ -1,10 +1,10 @@
 package ad
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/bububa/biz-weibo/model"
+	"github.com/bububa/biz-weibo/util"
 )
 
 // InfoRequest 广告计划详情 API Request
@@ -17,7 +17,7 @@ type InfoRequest struct {
 
 // URL implement Request interface
 func (r InfoRequest) URL() string {
-	return fmt.Sprintf("v3/ads/%d", r.AdID)
+	return util.StringsJoin("v3/ads/", strconv.FormatUint(r.AdID, 10))
 }
 
 // Payload implement Request interface

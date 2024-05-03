@@ -5,9 +5,9 @@ import (
 	"github.com/bububa/biz-weibo/model/creative"
 )
 
-// Creatives 获取创意列表
-func Creatives(clt *core.SDKClient, accessToken string, req *creative.CreativesRequest) (*creative.CreativesData, error) {
-	var ret creative.CreativesResponse
+// AdRec 智能创意文案
+func AdRec(clt *core.SDKClient, accessToken string, req *creative.AdRecRequest) ([]creative.AdRec, error) {
+	var ret creative.AdRecResponse
 	if err := clt.Do(accessToken, req, &ret); err != nil {
 		return nil, err
 	}

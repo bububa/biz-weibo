@@ -17,7 +17,7 @@ type InfoRequest struct {
 
 // URL implement Request interface
 func (r InfoRequest) URL() string {
-	return util.StringsJoin("v4/creatives/%d", strconv.FormatUint(r.ID, 10))
+	return util.StringsJoin("v4/creatives/", strconv.FormatUint(r.ID, 10))
 }
 
 // Payload implement Request interface
@@ -32,5 +32,5 @@ func (r InfoRequest) Payload() *model.Payload {
 // InfoResponse 广告创意详情 API Response
 type InfoResponse struct {
 	model.BaseResponse
-	Creative
+	Data *CreativeDetail `json:"data,omitempty"`
 }
